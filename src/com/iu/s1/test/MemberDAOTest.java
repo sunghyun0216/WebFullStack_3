@@ -14,7 +14,7 @@ public class MemberDAOTest {
 		memberDTO.setPw("pw3");
 		memberDTO.setName("id3");
 		memberDTO.setEmail("id3@naver.com");
-		memberDTO.setMobile("01022222222");
+		memberDTO.setPhone("01022222222");
 		
 		try {
 			int result = memberDAO.memberJoin(memberDTO);

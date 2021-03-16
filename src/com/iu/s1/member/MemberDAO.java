@@ -34,7 +34,7 @@ public class MemberDAO {
 		st.setString(2, memberDTO.getPw());
 		st.setString(3, memberDTO.getName());
 		st.setString(4, memberDTO.getEmail());
-		st.setString(5, memberDTO.getMobile());
+		st.setString(5, memberDTO.getPhone());
 		
 		//7. 최종 전송 후 처리
 		int result = st.executeUpdate();
@@ -79,7 +79,7 @@ public class MemberDAO {
 		if(rs.next()) {
 			memberDTO.setName(rs.getString("name"));
 			memberDTO.setEmail(rs.getString("email"));
-			memberDTO.setMobile(rs.getString("phone"));
+			memberDTO.setPhone(rs.getString("phone"));
 		}else {
 			memberDTO = null;
 		}
