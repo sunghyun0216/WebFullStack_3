@@ -32,6 +32,7 @@ public class MemberController extends HttpServlet {
     public void init() throws ServletException {
     	memberService = new MemberService();
     	MemberDAO memberDAO = new MemberDAO();
+    	System.out.println(memberDAO.toString());
     	memberService.setMemberDAO(memberDAO);
     }
 

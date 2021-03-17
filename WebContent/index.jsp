@@ -29,7 +29,7 @@
           <li><a href="#">Page 1-3</a></li>
         </ul>
       </li>
-      <li><a href="./bankbook/bankbookList.do">BankBook</a></li>
+      <li><a href="./bankbook/bankbookList.do">BankBook</a></li> <!-- a태그 : 페이지 이동 -->
     </ul>
     <ul class="nav navbar-nav navbar-right">
       <li><a href="./member/memberJoin.do"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
@@ -39,8 +39,8 @@
 </nav>
   
 <div class="container">
-  <h3>Right Aligned Navbar</h3>
-  <p>The .navbar-right class is used to right-align navigation bar buttons.</p>
+  <h3>Sung Hyun</h3> <!-- h3 글자크기 조정-->
+  <p>The .navbar-right class is used to right-align navigation bar buttons.</p> <!-- 문자쓰는거 -->
 </div>
 
 	

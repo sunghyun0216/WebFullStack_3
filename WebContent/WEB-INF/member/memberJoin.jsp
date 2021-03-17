@@ -46,12 +46,15 @@
 	<div class="container">
 		<div class="row">
 			<h1>Member Join Page</h1>
-			<form class="form-horizontal" action="./memberJoin.do" method="post">
+			<form class="form-horizontal" action="./memberJoin.do" method="post"><!-- post방식으로 보낸다 뭐를? form안에 있는 input 값을 어디로? action으로!! 왜냐 국룰이래  -->
 				<div class="form-group">
+				
 					<label class="control-label col-sm-2" for="id">ID:</label>
+					
+					
+					
 					<div class="col-sm-10">
-						<input type="text" class="form-control" id="id"
-							placeholder="Enter ID" name="id">
+						<input type="text" class="form-control" id="id" placeholder="Enter ID" name="id">
 					</div>
 				</div>
 

@@ -29,6 +29,8 @@ public class MemberService {
 			actionFoward.setPath("./memberLogin.do");
 			if(memberDTO != null) {
 				actionFoward.setPath("../index.do");
+//				actionFoward.setCheck(true);
+//				actionFoward.setPath("../WEB-INF/member/memberResult.jsp");
 			}
 			
 		}
@@ -44,6 +46,7 @@ public class MemberService {
 		String method = request.getMethod();
 		actionFoward.setPath("../WEB-INF/member/memberJoin.jsp");
 		actionFoward.setCheck(true);
+		
 		if(method.toUpperCase().equals("POST")) {
 			MemberDTO memberDTO = new MemberDTO();
 			memberDTO.setId(request.getParameter("id"));
@@ -52,8 +55,9 @@ public class MemberService {
 			memberDTO.setEmail(request.getParameter("email"));
 			memberDTO.setPhone(request.getParameter("phone"));
 			int result = memberDAO.memberJoin(memberDTO);
-			actionFoward.setPath("../index.do");
-			actionFoward.setCheck(false);
+			
+			actionFoward.setPath("../WEB-INF/member/memberJoin.jsp");
+			actionFoward.setCheck(true);
 		}
 		
 		
