@@ -2,10 +2,10 @@
 <%@page import="java.util.List"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
-    
+
 <%
-   List<BankBookDTO> ar = (List<BankBookDTO>)request.getAttribute("list");
-%>    
+	List<BankBookDTO> ar = (List<BankBookDTO>)request.getAttribute("list");
+%>
     
 <!DOCTYPE html>
 <html>
@@ -44,35 +44,35 @@
     </ul>
   </div>
 </nav>
-   
-<div class="contaener">
-   <div class="row">
-      <h1>BankBook List</h1>
-      
-      <table class="table table-hover">
-         <thead>
-            <tr>
-               <th>Name</th>
-               <th>Rate</th>
-               <th>Sale</th>
-            </tr>
-         </thead>
-      
-      <tbody>
-      <% for(int i=0;i<ar.size();i++){ %>
-         <tr>
-            <td><%=ar.get(i).getBookName() %></td>
-            <td><%=ar.get(i).getBookRate() %></td>
-            <td><%=ar.get(i).getBookSale() %></td>
-         </tr>
-         <%} %>
-      </tbody>
-      
-      </table>
-      
-   
-   </div>
-</div>      
-   
+
+<div class="container">
+	<div class="row">
+		<h1>BankBook List</h1>
+		
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th>Name</th>
+					<th>Rate</th>
+					<th>Sale</th>
+				</tr>
+			</thead>
+			
+			<tbody>
+			<% for(int i=0;i<ar.size();i++){ %>
+				<tr>
+					<td><a href="./bankbookSelect.do?bookNumber=<%= ar.get(i).getBookNumber()%>"><%=ar.get(i).getBookName() %></a></td>
+					<td><%=ar.get(i).getBookRate() %> </td>
+					<td><%=ar.get(i).getBookSale() %> </td>
+				</tr>
+			<%} %>	
+			</tbody>
+			
+		</table>
+		
+	
+	</div>
+</div>
+	
 </body>
 </html>

@@ -19,7 +19,7 @@ public class BankBookController extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 	
 	private BankBookService bankBookService;
-	     
+       
     /**
      * @see HttpServlet#HttpServlet()
      */
@@ -28,7 +28,9 @@ public class BankBookController extends HttpServlet {
         // TODO Auto-generated constructor stub
     }
     
-    public void init()throws ServletException{
+    @Override
+    public void init() throws ServletException {
+    	//Controller 객체 생성 후 자동 호출 되는 초기화 메서드
     	bankBookService = new BankBookService();
     	BankBookDAO bankBookDAO = new BankBookDAO();
     	bankBookService.setBankBookDAO(bankBookDAO);
@@ -39,26 +41,34 @@ public class BankBookController extends HttpServlet {
 	 */
 	protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
 		
-		// /webfullstack3/bankbook/bankbooklist.do
+		//  /WebFullStack_2/bankbook/bankbookList.do
 		String uri = request.getRequestURI();
-		int index = uri.lastIndexOf("/");
-		uri = uri.substring(index+1); 
 		
-		ActionFoward actionFoward = null;
+		System.out.println(uri);
+		
+		int index = uri.lastIndexOf("/");
+		uri = uri.substring(index+1);//   bankbookList.do
+		
+		System.out.println(uri);
+		
+		ActionFoward actionFoward=null;
 		
 		try {
-			if(uri.equals("bankbookList.do")){
-			  actionFoward = bankBookService.getList(request);
+			if(uri.equals("bankbookList.do")) {
+				actionFoward = bankBookService.getList(request);
+			}else if(uri.equals("bankbookSelect.do")) {
+				actionFoward = bankBookService.getSelect(request);
 			}
-		} catch (Exception e) {
-			// TODO: handle exception
+		}catch (Exception e) {
+			System.out.println("errorrrrrr");
+			e.printStackTrace();
 		}
 		
 		//forward, Redirect
 		if(actionFoward.isCheck()) {
 			RequestDispatcher view = request.getRequestDispatcher(actionFoward.getPath());
 			view.forward(request, response);
-		} else {
+		}else {
 			response.sendRedirect(actionFoward.getPath());
 		}
 		
